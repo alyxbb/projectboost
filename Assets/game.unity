@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44950438, g: 0.49957526, b: 0.5756821, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -218,23 +218,35 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4199980257650160, guid: 7b9adfa0bb151d24c95844481d34d204, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.40821788
+      value: 0.7134026
       objectReference: {fileID: 0}
     - target: {fileID: 4199980257650160, guid: 7b9adfa0bb151d24c95844481d34d204, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0.23456968
+      value: -0.23690295
       objectReference: {fileID: 0}
     - target: {fileID: 4199980257650160, guid: 7b9adfa0bb151d24c95844481d34d204, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0.10938163
+      value: -0.33406752
       objectReference: {fileID: 0}
     - target: {fileID: 4199980257650160, guid: 7b9adfa0bb151d24c95844481d34d204, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.8754261
+      value: 0.5686235
       objectReference: {fileID: 0}
     - target: {fileID: 4199980257650160, guid: 7b9adfa0bb151d24c95844481d34d204, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4199980257650160, guid: 7b9adfa0bb151d24c95844481d34d204, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 40.771004
+      objectReference: {fileID: 0}
+    - target: {fileID: 4199980257650160, guid: 7b9adfa0bb151d24c95844481d34d204, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -99.894005
+      objectReference: {fileID: 0}
+    - target: {fileID: 4199980257650160, guid: 7b9adfa0bb151d24c95844481d34d204, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -108.563
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7b9adfa0bb151d24c95844481d34d204, type: 2}
