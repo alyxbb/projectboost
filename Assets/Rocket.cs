@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Rocket : MonoBehaviour {
 
+    [SerializeField]float thrustspeed = 1000f;
+    [SerializeField]float rotationspeed = 100f;
+
     Rigidbody rigidbody;
     AudioSource audioSource;
     
@@ -16,14 +19,15 @@ public class Rocket : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Processinput();
+        Thrust();
+        Rotate();
 	}
-
-    private void Processinput()
+    private void Thrust()
     {
+        float thrustthisframe = thrustspeed * Time.deltaTime;
         if (Input.GetKey(KeyCode.Space))
         {
-            rigidbody.AddRelativeForce(Vector3.up*Time.deltaTime);
+            rigidbody.AddRelativeForce(Vector3.up * thrustthisframe);
             if (!audioSource.isPlaying)
             {
                 audioSource.Play();
@@ -33,13 +37,19 @@ public class Rocket : MonoBehaviour {
         {
             audioSource.Stop();
         }
+    }
+    private void Rotate()
+    {
+        rigidbody.freezeRotation = true;
+        float rotationthisframe = rotationspeed * Time.deltaTime;
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Rotate(Vector3.forward*Time.deltaTime*50);
+            transform.Rotate(Vector3.forward * rotationthisframe);
         }
         if (Input.GetKey(KeyCode.D))
         {
-            transform.Rotate(-Vector3.forward*Time.deltaTime*50);
+            transform.Rotate(-Vector3.forward * rotationthisframe);
         }
+        rigidbody.freezeRotation = false;
     }
 }
