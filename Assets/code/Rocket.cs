@@ -1,14 +1,17 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Rocket : MonoBehaviour {
+    public class Rocket : MonoBehaviour {
 
-    [SerializeField]float thrustspeed = 1000f;
+        [SerializeField]float thrustspeed = 1000f;
     [SerializeField]float rotationspeed = 100f;
     [SerializeField] AudioClip deathsfx;
     [SerializeField] AudioClip winsfx;
     [SerializeField] AudioSource thrust;
     [SerializeField] AudioSource sfx;
+    [SerializeField] ParticleSystem thrustfx;
+    [SerializeField] ParticleSystem deathfx;
+    [SerializeField] ParticleSystem winfx;
 
     Rigidbody rigidbody;
 
@@ -33,6 +36,7 @@ public class Rocket : MonoBehaviour {
         else
         {
             thrust.Stop();
+            thrustfx.Stop();
         }
 	}
 
@@ -46,6 +50,7 @@ public class Rocket : MonoBehaviour {
         else
         {
             thrust.Stop();
+            thrustfx.Stop();
         }
     }
     private void Respondtorotateinput()
@@ -70,6 +75,7 @@ public class Rocket : MonoBehaviour {
         {
             thrust.Play();
         }
+        thrustfx.Play();
     }
 
     void OnCollisionEnter(Collision collision)
@@ -91,13 +97,14 @@ public class Rocket : MonoBehaviour {
     private void Startdeathsequence()
     {
         state = State.dying;
+        deathfx.Play();
         sfx.PlayOneShot(deathsfx);
         Invoke("Loadfirstscene", 1f);
     }
-
     private void Startsuccessequence()
     {
         state = State.levelcomplete;
+        winfx.Play();
         sfx.PlayOneShot(winsfx);
         Invoke("Loadnextscene", 1f);
     }
