@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 54785658710096972}
   - component: {fileID: 114055264073852668}
   - component: {fileID: 82227333925203664}
+  - component: {fileID: 82042014756799654}
   m_Layer: 0
   m_Name: rocket ship
   m_TagString: Untagged
@@ -385,6 +386,86 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!82 &82042014756799654
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1403335045086520}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!82 &82227333925203664
 AudioSource:
   m_ObjectHideFlags: 1
@@ -394,7 +475,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 9bbf24ebb64b7f14ebcac7bdc0b04f08, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8bf5ebb1b4511de4789f9468c4e3998e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -478,9 +559,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrustspeed: 1000
   rotationspeed: 100
-  mainenginesfx: {fileID: 8300000, guid: 8bf5ebb1b4511de4789f9468c4e3998e, type: 3}
   deathsfx: {fileID: 8300000, guid: cf020566344681241a4e820b71e95eee, type: 3}
   winsfx: {fileID: 8300000, guid: 3487223a7e3469e4f93526069799c3bb, type: 3}
+  thrust: {fileID: 82227333925203664}
+  sfx: {fileID: 82042014756799654}
 --- !u!135 &135273902004135282
 SphereCollider:
   m_ObjectHideFlags: 1
