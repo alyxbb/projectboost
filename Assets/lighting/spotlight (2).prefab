@@ -9,53 +9,53 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1096719943746408}
+  m_RootGameObject: {fileID: 1654924334986440}
   m_IsPrefabParent: 1
---- !u!1 &1096719943746408
+--- !u!1 &1654924334986440
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4199980257650160}
-  - component: {fileID: 108365477200051844}
+  - component: {fileID: 4262579866199078}
+  - component: {fileID: 108393869825389738}
   m_Layer: 0
-  m_Name: Directional Light
+  m_Name: spotlight (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4199980257650160
+--- !u!4 &4262579866199078
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1096719943746408}
-  m_LocalRotation: {x: 0.20983562, y: -0.3131348, z: 0.580783, w: 0.72153085}
-  m_LocalPosition: {x: -18.6, y: 54.6, z: -108.3}
+  m_GameObject: {fileID: 1654924334986440}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 23.3, y: 20.8, z: -26}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 138.2, y: -196.212, z: -108.56299}
---- !u!108 &108365477200051844
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!108 &108393869825389738
 Light:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1096719943746408}
+  m_GameObject: {fileID: 1654924334986440}
   m_Enabled: 1
   serializedVersion: 8
-  m_Type: 1
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
-  m_Range: 10
+  m_Type: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 14.2
+  m_Range: 25.1
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
