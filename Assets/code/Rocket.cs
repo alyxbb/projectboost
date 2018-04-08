@@ -12,6 +12,7 @@ using UnityEngine.SceneManagement;
     [SerializeField] ParticleSystem thrustfx;
     [SerializeField] ParticleSystem deathfx;
     [SerializeField] ParticleSystem winfx;
+    [SerializeField] float levelloadtime = 2f;
 
     Rigidbody rigidbody;
 
@@ -99,14 +100,14 @@ using UnityEngine.SceneManagement;
         state = State.dying;
         deathfx.Play();
         sfx.PlayOneShot(deathsfx);
-        Invoke("Loadfirstscene", 1f);
+        Invoke("Loadfirstscene", levelloadtime);
     }
     private void Startsuccessequence()
     {
         state = State.levelcomplete;
         winfx.Play();
         sfx.PlayOneShot(winsfx);
-        Invoke("Loadnextscene", 1f);
+        Invoke("Loadnextscene", levelloadtime);
     }
 
     private void Loadnextscene()

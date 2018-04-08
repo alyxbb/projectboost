@@ -5,7 +5,7 @@ using UnityEngine;
 public class Moveingobjects : MonoBehaviour {
 
     [SerializeField] Vector3 movementvector = new Vector3(10f, 0f, 0f);
-    [Range(0,1)][SerializeField]float movementfactor;
+    [Range(0,1)]float movementfactor;
     [SerializeField] float period = 2f;
 
     Vector3 startingpos;
@@ -16,6 +16,8 @@ public class Moveingobjects : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (period <= Mathf.Epsilon) { return; };
+        
         float cycles = Time.time / period;
 
         const float tau = Mathf.PI * 2;
@@ -24,5 +26,6 @@ public class Moveingobjects : MonoBehaviour {
         movementfactor = rawsinwave / 2f + 0.5f;
         Vector3 offset = movementvector * movementfactor;
         transform.position = startingpos + offset;
+        
 	}
 }
