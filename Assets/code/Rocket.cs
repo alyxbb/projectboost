@@ -5,9 +5,13 @@ public class Rocket : MonoBehaviour {
 
     [SerializeField]float thrustspeed = 1000f;
     [SerializeField]float rotationspeed = 100f;
+    [SerializeField] AudioClip deathsfx;
+    [SerializeField] AudioClip winsfx;
+    [SerializeField] AudioSource thrust;
+    [SerializeField] AudioSource sfx;
 
     Rigidbody rigidbody;
-    AudioSource audioSource;
+
 
     enum State {alive,dying,levelcomplete }
     State state = State.alive;
@@ -16,7 +20,6 @@ public class Rocket : MonoBehaviour {
 	void Start ()
     {
         rigidbody = GetComponent<Rigidbody>();
-        audioSource = GetComponent<AudioSource>();
     }
 	
 	// Update is called once per frame
@@ -24,27 +27,28 @@ public class Rocket : MonoBehaviour {
     {
         if (state == State.alive) 
         {
-            Thrust();
-            Rotate();
+            Respondtothrustinput();
+            Respondtorotateinput();
+        }
+        else
+        {
+            thrust.Stop();
         }
 	}
-    private void Thrust()
+
+    private void Respondtothrustinput()
     {
         float thrustthisframe = thrustspeed * Time.deltaTime;
         if (Input.GetKey(KeyCode.Space))
         {
-            rigidbody.AddRelativeForce(Vector3.up * thrustthisframe);
-            if (!audioSource.isPlaying)
-            {
-                audioSource.Play();
-            }
+            Thrust(thrustthisframe);
         }
         else
         {
-            audioSource.Stop();
+            thrust.Stop();
         }
     }
-    private void Rotate()
+    private void Respondtorotateinput()
     {
         rigidbody.freezeRotation = true;
         float rotationthisframe = rotationspeed * Time.deltaTime;
@@ -59,28 +63,44 @@ public class Rocket : MonoBehaviour {
         rigidbody.freezeRotation = false;
     }
 
+    private void Thrust(float thrustthisframe)
+    {
+        rigidbody.AddRelativeForce(Vector3.up * thrustthisframe);
+        if (!thrust.isPlaying)
+        {
+            thrust.Play();
+        }
+    }
+
     void OnCollisionEnter(Collision collision)
     {
-        if (state != State.alive)
-        {
-            return;
-        }
+        if (state != State.alive){return;}
         switch (collision.gameObject.tag)
         {
             case "friendly":
                 break;
             case "Finish":
-                state = State.levelcomplete;
-                Invoke("Loadnextscene",1f);
+                Startsuccessequence();
                 break;
             default:
-                state = State.dying;
-                Invoke("Loadfirstscene", 1f);
+                Startdeathsequence();
                 break;
         }
     }
 
-   
+    private void Startdeathsequence()
+    {
+        state = State.dying;
+        sfx.PlayOneShot(deathsfx);
+        Invoke("Loadfirstscene", 1f);
+    }
+
+    private void Startsuccessequence()
+    {
+        state = State.levelcomplete;
+        sfx.PlayOneShot(winsfx);
+        Invoke("Loadnextscene", 1f);
+    }
 
     private void Loadnextscene()
     {
