@@ -122,11 +122,24 @@ using UnityEngine.SceneManagement;
 
     private void Loadnextscene()
     {
-        SceneManager.LoadScene(1);
+        int currentsceneindex = SceneManager.GetActiveScene().buildIndex;
+        int nextsceneindex = currentsceneindex + 1;
+        print("loading next scene");
+        if (nextsceneindex <= SceneManager.sceneCountInBuildSettings-1)
+        {
+            print("loading next scene");
+            print(nextsceneindex);
+            SceneManager.LoadScene(nextsceneindex);
+        }
+        else
+        {
+            SceneManager.LoadScene(0);
+        }
     }
     private void Loadfirstscene()
     {
-        SceneManager.LoadScene(0);
+        int currentsceneindex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentsceneindex);
     }
 
     private void debugkeys()

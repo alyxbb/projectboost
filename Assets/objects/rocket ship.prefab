@@ -792,6 +792,7 @@ MonoBehaviour:
   deathfx: {fileID: 198829398474463842}
   winfx: {fileID: 198899231416869452}
   levelloadtime: 3
+  debug: 0
 --- !u!135 &135273902004135282
 SphereCollider:
   m_ObjectHideFlags: 1
