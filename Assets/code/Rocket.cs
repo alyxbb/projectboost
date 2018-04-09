@@ -13,8 +13,10 @@ using UnityEngine.SceneManagement;
     [SerializeField] ParticleSystem deathfx;
     [SerializeField] ParticleSystem winfx;
     [SerializeField] float levelloadtime = 2f;
+    [SerializeField] bool debug = false;
 
     Rigidbody rigidbody;
+    bool collisonchecker = true;
 
 
     enum State {alive,dying,levelcomplete }
@@ -39,7 +41,11 @@ using UnityEngine.SceneManagement;
             thrust.Stop();
             thrustfx.Stop();
         }
-	}
+        if (debug)
+        {
+            debugkeys();
+        }
+    }
 
     private void Respondtothrustinput()
     {
@@ -90,9 +96,13 @@ using UnityEngine.SceneManagement;
                 Startsuccessequence();
                 break;
             default:
-                Startdeathsequence();
+                if (collisonchecker)
+                {
+                    Startdeathsequence();
+                }
                 break;
         }
+   
     }
 
     private void Startdeathsequence()
@@ -117,5 +127,18 @@ using UnityEngine.SceneManagement;
     private void Loadfirstscene()
     {
         SceneManager.LoadScene(0);
+    }
+
+    private void debugkeys()
+    {
+        if (Input.GetKey(KeyCode.C))
+        {
+            Loadnextscene();
+        }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            print("collisons off");
+            collisonchecker = !collisonchecker;
+        }
     }
 }
