@@ -56,13 +56,19 @@ using UnityEngine.SceneManagement;
         }
         else
         {
-            thrust.Stop();
-            thrustfx.Stop();
+            Stopthrust();
         }
     }
+
+    private void Stopthrust()
+    {
+        thrust.Stop();
+        thrustfx.Stop();
+    }
+
     private void Respondtorotateinput()
     {
-        rigidbody.freezeRotation = true;
+        rigidbody.angularVelocity = Vector3.zero;
         float rotationthisframe = rotationspeed * Time.deltaTime;
         if (Input.GetKey(KeyCode.A))
         {
@@ -72,7 +78,6 @@ using UnityEngine.SceneManagement;
         {
             transform.Rotate(-Vector3.forward * rotationthisframe);
         }
-        rigidbody.freezeRotation = false;
     }
 
     private void Thrust(float thrustthisframe)
